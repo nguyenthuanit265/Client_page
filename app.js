@@ -9,13 +9,9 @@ var mongoose = require('mongoose');
 
 
 var indexRouter = require('./routes/index');
-var productRouter = require('./routes/product');
-
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
-var mailRouter = require('./routes/mail');
-var checkoutRouter = require('./routes/checkout');
-var short_codesRouter = require('./routes/short-codes');
+var clientRouter = require('./routes/client');
 var app = express();
 
 
@@ -37,14 +33,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/checkout', checkoutRouter);
-app.use('/login', loginRouter);
-app.use('/mail', mailRouter);
-app.use('/product', productRouter);
-
-
-app.use('/register', registerRouter);
-app.use('/short-codes', short_codesRouter);
+app.use('/client', clientRouter); 
+// app.use('/register', registerRouter);
+// app.use('/login', loginRouter);
 
 
 // catch 404 and forward to error handler
